@@ -1,0 +1,32 @@
+{
+  "name": "@ymainier/scrappy",
+  "version": "1.0.0",
+  "description": "getting movie file data from TheMovieDataBase",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ymainier/scrappy.git"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "lib/**/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: Testing is doubting ;-)\" && exit 1",
+    "build": "tsc"
+  },
+  "prepare": "npm run build",
+  "author": "Yann Mainier <yann.mainier@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.16",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@ctrl/video-filename-parser": "^4.11.1",
+    "moviedb-promise": "^3.3.1"
+  },
+  "bin": {
+    "scrappy": "./dist/index.js"
+  }
+}
