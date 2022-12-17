@@ -1,6 +1,6 @@
 {
   "name": "@ymainier/scrappy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "getting movie file data from TheMovieDataBase",
   "repository": {
     "type": "git",
@@ -8,14 +8,14 @@
   },
   "main": "dist/index.js",
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "type": "module",
   "scripts": {
     "test": "echo \"Error: Testing is doubting ;-)\" && exit 1",
+    "prepare": "npm run build",
     "build": "tsc"
   },
-  "prepare": "npm run build",
   "author": "Yann Mainier <yann.mainier@gmail.com>",
   "license": "ISC",
   "devDependencies": {
