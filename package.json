@@ -1,6 +1,6 @@
 {
   "name": "@ymainier/scrappy",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "getting movie file data from TheMovieDataBase",
   "repository": {
     "type": "git",
