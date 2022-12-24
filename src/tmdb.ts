@@ -11,10 +11,8 @@ type Movie = {
 };
 
 function imageUrl(base: string | undefined, path: string | undefined) {
-  if (!base || !path) {
-    return undefined;
-  }
-  return `${base}${path}`;
+  if (!path) return undefined
+  return base ? `${base}${path}` : path;
 }
 
 export class TMDB {
