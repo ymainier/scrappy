@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 import { getInput } from "./getInput.js";
 import { promisePool } from "./promisePool.js";
+import type { Movie } from "./tmdb.js";
 import { TMDB } from "./tmdb.js";
 
 const { TMDB_API_KEY } = process.env;
@@ -29,5 +30,12 @@ Promise.all([
       2
     )
   )
-  .then((result) => console.log(result))
+  .then((settledMovies) =>
+    settledMovies
+      .filter(
+        (s): s is PromiseFulfilledResult<Movie> => s.status === "fulfilled"
+      )
+      .map((s) => s.value)
+  )
+  .then((result) => console.log(JSON.stringify(result, null, 2)))
   .catch((e) => console.error(e));

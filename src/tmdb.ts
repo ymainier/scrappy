@@ -1,7 +1,7 @@
 import { filenameParse } from "@ctrl/video-filename-parser";
 import { MovieDb } from "moviedb-promise";
 
-type Movie = {
+export type Movie = {
   id: number | undefined;
   fullpath: string;
   title: string;
