@@ -90,7 +90,21 @@ const getDataArgsForShows = [
 
 const getDataArgsForMovies = [
   (filename: string) => () => tmdb.getMovie(filename),
-  (array: Array<Movie>) => array,
+  (
+    movieArray: Array<Movie>
+  ): { movies: Record<Movie["id"], Movie>; data: Array<Movie["id"]> } => {
+    const movies = movieArray.reduce<Record<Movie["id"], Movie>>(
+      (movies, movie) => {
+        movies[movie.id] = movie;
+        return movies;
+      },
+      {}
+    );
+    const data = movieArray
+      .sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()))
+      .map((m) => m.id);
+    return { movies, data };
+  },
 ] as const;
 
 (areTvShows

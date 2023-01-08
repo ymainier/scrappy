@@ -8,7 +8,7 @@ import type {
 } from "moviedb-promise";
 
 export type Movie = {
-  id?: number;
+  id: string;
   fullpath: string;
   title: string;
   description?: string;
@@ -84,14 +84,14 @@ export class TMDB {
         return this.#moviedb.movieInfo({ id: search.results[0].id });
       })
       .then((movie) => ({
-        id: movie?.id,
+        id: typeof movie?.id === 'undefined' ? fullpath : `${movie?.id}`,
         fullpath,
         title: movie?.title || title,
         description: movie?.overview,
         backdrop: imageUrl(imageBaseUrl, movie?.backdrop_path),
         poster: imageUrl(imageBaseUrl, movie?.poster_path),
       }))
-      .catch(() => ({ title, fullpath }));
+      .catch(() => ({ id: fullpath, title, fullpath }));
   }
 
   searchTvShow(
