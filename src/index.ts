@@ -8,7 +8,7 @@ const { TMDB_API_KEY } = process.env;
 if (!TMDB_API_KEY) {
   console.error("Error: API key not found.");
   console.error(
-    "  Set your TheMovieDataBase API key in in the TMDB_API_KEY environment variable."
+    "  Set your TheMovieDataBase API key in the TMDB_API_KEY environment variable."
   );
   process.exit(-1);
 }
