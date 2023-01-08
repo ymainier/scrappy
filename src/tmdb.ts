@@ -220,12 +220,4 @@ export class TMDB {
 
     return this.searchShowSeasonEpisode(title, seasonNumber, episodeNumber, mayberYear, fullpath, imageBaseUrl)
   }
-
-  getImageBaseUrl(): Promise<string | undefined> {
-    return this.#moviedb
-      .configuration()
-      .then(({ images }) =>
-        images.secure_base_url ? `${images.secure_base_url}original` : undefined
-      );
-  }
 }
